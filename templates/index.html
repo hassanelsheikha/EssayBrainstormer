@@ -8,4 +8,7 @@
 {% if empty == "True" %}
 <p style="color:red">Please enter a topic.</p>
 {% endif %}
+{% if wikipedia != "" %}
+<p>{{wikipedia}}</p>
+{% endif %}
 {% endblock %}
