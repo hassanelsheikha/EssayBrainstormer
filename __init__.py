@@ -14,6 +14,9 @@ def home():
             return render_template("index.html", empty="True")
         else:
             wikipedia_definition = "Wikipedia: " + extract_first_sentence(start_wikipedia_fetch(topic))
+            # check if a definition is not available for the topic.
+            if 'The page' in wikipedia_definition and 'does not exist.' in wikipedia_definition:
+                wikipedia_definition = 'A Wikipedia definition does not exist for this topic.'
             return render_template("index.html", wikipedia=wikipedia_definition)
     else:
         return render_template("index.html")

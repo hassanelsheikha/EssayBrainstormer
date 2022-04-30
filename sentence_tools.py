@@ -1,7 +1,8 @@
+import nltk
 from PyDictionary import PyDictionary
 import itertools
 from nltk.corpus import wordnet as wn
-
+nltk.download('omw-1.4')
 PUNCTUATION = ['.', '!', '?']
 DICTIONARY = PyDictionary()
 
@@ -32,11 +33,9 @@ def extract_first_sentence(text: str) -> str:
     return first_sentence
 
 
-def _get_search_words(s):
+def _get_search_words(s: str):
     """Returns all possible combinations of words in a string
-    >>> _get_search_words("king is good boy")
-    l
-        """
+    """
     out = {}
     lst = s.split()
     for i in range(1, len(lst) + 1):
