@@ -1,4 +1,10 @@
+from PyDictionary import PyDictionary
+import itertools
+from nltk.corpus import wordnet as wn
+
 PUNCTUATION = ['.', '!', '?']
+DICTIONARY = PyDictionary()
+
 
 def extract_first_sentence(text: str) -> str:
     """Return the first sentence in <text>. A sentence is defined as a string of
@@ -24,3 +30,49 @@ def extract_first_sentence(text: str) -> str:
             return first_sentence
         i += 1
     return first_sentence
+
+
+def _get_search_words(s):
+    """Returns all possible combinations of words in a string
+    >>> _get_search_words("king is good boy")
+    l
+        """
+    out = {}
+    lst = s.split()
+    for i in range(1, len(lst) + 1):
+        for subset in itertools.combinations(lst, i):
+            if len(set(subset)) == len(subset):
+                out.setdefault(subset, i)
+    return out
+
+
+def main_get_keywords(dic):
+    """ Fix the list obtained from get_search_words().
+    The idea is to get rid of useless searches
+    Bad combinations: Adjective, Tense, Preposition, Article, Empty, Noun + (Tense or Preposition)
+    >>> main_get_keywords(_get_search_words("Usain Bolt is the fastest man"))
+    """
+    out = []
+    for sub_lst in dic:
+        if len(sub_lst) >= 3:
+            set_of = "0"
+            for w in range(len(sub_lst)):
+                for tmp in wn.synsets(sub_lst[w]):
+                    if tmp.name().split('.')[0] == sub_lst[w]:
+                        set_of += tmp.pos()
+            d = {}
+            for i in set_of:
+                d.setdefault(i, 0)
+                d[i] += 1
+            most_common = max(d, key=d.get)
+            set_of = most_common
+
+            if set_of == 'n':
+                out.append(sub_lst)
+    return out
+
+
+if __name__ == '__main__':
+    import doctest
+
+    doctest.testmod()
