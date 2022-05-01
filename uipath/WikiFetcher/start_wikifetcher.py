@@ -9,7 +9,7 @@ ProcessPath = r'C:\\Users\\Hassan\\Documents\\GitHub\\essay_brainstormer\\uipath
 
 
 def start_wikipedia_fetch(topic: str) -> str:
-    """Start the WikipediaFetch process with <topic>, and return the contents of
+    """Start the WikipediaFetch process with <phrase>, and return the contents of
     the clipboard after the process executes. """
     topic = "'" + topic + "'"
     command = f"{UiRobotPath} execute  --file {ProcessPath} --input \"{{'in_topic': {topic}}}\" "
@@ -19,7 +19,7 @@ def start_wikipedia_fetch(topic: str) -> str:
 
 def get_wikipedia_definition(topic: str) -> Optional[str]:
     first_paragraph = start_wikipedia_fetch(topic)
-    definition = f'Wikipedia defines {topic} as: ' + extract_first_sentence(first_paragraph)
+    definition = f'Wikipedia defines {topic} as: ' + '"' + extract_first_sentence(first_paragraph) + '"'
     if 'The page' in definition and 'does not exist.' in definition:
         return None
     return definition

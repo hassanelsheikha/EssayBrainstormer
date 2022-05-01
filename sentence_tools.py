@@ -2,6 +2,7 @@ import nltk
 from PyDictionary import PyDictionary
 import itertools
 from nltk.corpus import wordnet as wn
+
 nltk.download('omw-1.4')
 PUNCTUATION = ['.', '!', '?']
 DICTIONARY = PyDictionary()
@@ -33,7 +34,7 @@ def extract_first_sentence(text: str) -> str:
     return first_sentence
 
 
-def _get_search_words(s: str):
+def get_search_words(s: str) -> dict[str, int]:
     """Returns all possible combinations of words in a string
     """
     out = {}
@@ -45,11 +46,11 @@ def _get_search_words(s: str):
     return out
 
 
-def main_get_keywords(dic):
+def main_get_keywords(dic: dict[str, int]) -> list[tuple]:
     """ Fix the list obtained from get_search_words().
     The idea is to get rid of useless searches
     Bad combinations: Adjective, Tense, Preposition, Article, Empty, Noun + (Tense or Preposition)
-    >>> main_get_keywords(_get_search_words("Usain Bolt is the fastest man"))
+    >>> main_get_keywords(get_search_words("Usain Bolt is the fastest man"))
     """
     out = []
     for sub_lst in dic:
@@ -69,6 +70,26 @@ def main_get_keywords(dic):
             if set_of == 'n':
                 out.append(sub_lst)
     return out
+
+
+def keywords(phrase: str) -> list[str]:
+    """ Given a <phrase>, return relatively-sensible combinations of the words
+    that comprise it.
+    >>> keywords('Usain bolt is the fastest man.')
+    """
+    ans = [phrase]
+    unformatted = main_get_keywords(get_search_words(phrase))
+    for keyword in unformatted:
+        ans.append(' '.join(keyword))
+    if phrase not in ans:
+        ans.insert(0, phrase)
+    try:
+        temp = ans[1:]
+        temp.remove(phrase)
+        ans[1:] = temp
+        return ans
+    except ValueError:
+        return ans
 
 
 if __name__ == '__main__':
