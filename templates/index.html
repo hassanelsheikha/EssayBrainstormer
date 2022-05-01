@@ -16,6 +16,9 @@
     {% if wikipedia != "" %}
     <h4 style="font-size: 150%">{{wikipedia}}</h4>
     {% endif %}
+    {% if site != "" %}
+    <a href="{{site}}">Click to read more.</a>
+    {% endif %}
     {% endblock %}
     <br>
     <input type="text" name="topic" id="topic" placeholder="Topic" style="width:250px;height:50px;text-align:center;font-family:verdana">
