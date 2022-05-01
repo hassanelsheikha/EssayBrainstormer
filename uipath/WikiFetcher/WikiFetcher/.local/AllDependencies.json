@@ -8415,15 +8415,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\14163\\.nuget\\packages\\": {}
+    "C:\\Users\\Hassan\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "WikiFetcher",
       "projectName": "WikiFetcher",
-      "projectPath": "C:\\Users\\14163\\Documents\\GitHub\\essay_brainstormer\\uipath\\WikiFetcher\\WikiFetcher\\.local",
-      "packagesPath": "C:\\Users\\14163\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\14163\\Documents\\GitHub\\essay_brainstormer\\uipath\\WikiFetcher\\WikiFetcher\\.local"
+      "projectPath": "C:\\Users\\Hassan\\Documents\\GitHub\\essay_brainstormer\\uipath\\WikiFetcher\\WikiFetcher\\.local",
+      "packagesPath": "C:\\Users\\Hassan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Hassan\\Documents\\GitHub\\essay_brainstormer\\uipath\\WikiFetcher\\WikiFetcher\\.local"
     },
     "frameworks": {
       "net461": {
@@ -8449,7 +8449,7 @@
             "version": "[22.4.2-preview, 22.4.2-preview]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\14163\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\Hassan\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {
