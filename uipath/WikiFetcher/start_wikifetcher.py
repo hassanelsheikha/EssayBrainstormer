@@ -19,7 +19,10 @@ def start_wikipedia_fetch(topic: str) -> str:
 
 def get_wikipedia_definition(topic: str) -> Optional[str]:
     first_paragraph = start_wikipedia_fetch(topic)
+    print(first_paragraph)
     definition = f'Wikipedia defines {topic} as: ' + '"' + extract_first_sentence(first_paragraph) + '"'
     if 'The page' in definition and 'does not exist.' in definition:
+        return None
+    elif '{' in definition or '}' in definition:
         return None
     return definition
