@@ -9,7 +9,7 @@ def get_key_points_google(topic):
     """
 
     :param topic: str
-    :return: str
+    :return: lst
 
     >>> get_key_points_google('King Kong')
     """
