@@ -4,6 +4,7 @@ import pyperclip as pc
 from sentence_tools import extract_first_sentence
 from sentence_tools import get_key_points_google
 
+# Both the UiRobotPath and ProcessPath have to be changed with respect to the user.
 UiRobotPath = r'C:\\Users\Hassan\AppData\Local\Programs\UiPath\Studio\UiRobot.exe'
 ProcessPath = r'C:\\Users\\Hassan\\Documents\\GitHub\\essay_brainstormer\\uipath\\WikiFetcher\\WikiFetcher\\Main.xaml'
 
