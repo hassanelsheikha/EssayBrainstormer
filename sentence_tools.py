@@ -5,23 +5,11 @@ from nltk.corpus import wordnet as wn
 from GoogleNews import GoogleNews
 
 
-def get_key_points_google(topic):
-    """
-
-    :param topic: str
-    :return: lst
-
-    >>> get_key_points_google('King Kong')
-    """
-    gn = GoogleNews('en', 'd')
-    gn.search(topic)
-    gn.getpage(1)
-    gn.result()
-    return gn.gettext()
-
 nltk.download('omw-1.4')
 PUNCTUATION = ['.', '!', '?']
 DICTIONARY = PyDictionary()
+
+
 def extract_first_sentence(text: str) -> str:
     """Return the first sentence in <text>. A sentence is defined as a string of
     words that ends with a period. If there is a sentence that occurs after
@@ -46,6 +34,21 @@ def extract_first_sentence(text: str) -> str:
             return first_sentence
         i += 1
     return first_sentence
+
+
+def get_key_points_google(topic):
+    """
+
+    :param topic: str
+    :return: lst
+
+    >>> get_key_points_google('King Kong')
+    """
+    gn = GoogleNews('en', 'd')
+    gn.search(topic)
+    gn.getpage(1)
+    gn.result()
+    return gn.gettext()
 
 
 def get_search_words(s: str) -> dict[str, int]:

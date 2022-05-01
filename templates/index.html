@@ -4,17 +4,20 @@
 <html>
 <body style="background-color:rgb(37, 115, 222);border:2px solid black">
 <form action="#" method="post" style="text-align:center">
-<br>
     <img src="https://media.discordapp.net/attachments/969725298398621706/970055115971129384/unknown.png" style="img-align:center;width:750px"><br>
     <img src="https://cdn.discordapp.com/attachments/969723865418858567/970162401662099456/unknown.png" style="height:150px"><br>
-    <br>
-    <br>
-    <br>
+
+
     {% if empty == "True" %}
     <p style="color:red">Please enter a topic.</p>
     {% endif %}
     {% if wikipedia != "" %}
     <h4 style="font-size: 150%">{{wikipedia}}</h4>
+        {% autoescape false %}
+            <pre>
+            <h5 style="font-size: 150%">{{news}}</h5>
+            </pre>
+        {% endautoescape %}
     {% endif %}
     {% if site != "" %}
     <a href="{{site}}">Click to read more.</a>

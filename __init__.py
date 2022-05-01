@@ -13,14 +13,18 @@ def home():
         if topic == '':  # if the user has not given an input
             return render_template("index.html", empty="True", site="")
         else:
-            wikipedia_definition = get_wikipedia_definition(topic)
+            t = get_wikipedia_definition(topic)
             url = f'https://en.wikipedia.org/wiki/{topic}'
-            if wikipedia_definition is None:  # if the term is undefined
+            if t is None:  # if the term is undefined
                 wikipedia_definition = 'Wikipedia does not have a definition for this phrase.' \
                                        ' If your phrase is broad (there is one name corresponding to equally ranked people), please be more specific.'
-                site = ""
-            print(f'URL is: {url}')
-            return render_template("index.html", wikipedia=wikipedia_definition, site=url)
+                url = ""
+                news = ""
+            else:
+                wikipedia_definition = t[0]
+                news = t[1]
+
+            return render_template("index.html", wikipedia=wikipedia_definition, site=url, news=news)
     else:
         return render_template("index.html", site='')
 

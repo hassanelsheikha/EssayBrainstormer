@@ -4,8 +4,8 @@ import pyperclip as pc
 from sentence_tools import extract_first_sentence
 from sentence_tools import get_key_points_google
 
-UiRobotPath = r'C:\\Users\14163\AppData\Local\Programs\UiPath\Studio\UiRobot.exe'
-ProcessPath = r'C:\\Users\\14163\\Documents\\GitHub\\essay_brainstormer\\uipath\\WikiFetcher\\WikiFetcher\\Main.xaml'
+UiRobotPath = r'C:\\Users\Hassan\AppData\Local\Programs\UiPath\Studio\UiRobot.exe'
+ProcessPath = r'C:\\Users\\Hassan\\Documents\\GitHub\\essay_brainstormer\\uipath\\WikiFetcher\\WikiFetcher\\Main.xaml'
 
 
 def start_wikipedia_fetch(topic: str) -> str:
@@ -17,7 +17,10 @@ def start_wikipedia_fetch(topic: str) -> str:
     return str(pc.paste())
 
 
-def get_wikipedia_definition(topic: str) -> Optional[str]:
+def get_wikipedia_definition(topic: str) -> Optional[tuple[str, str]]:
+    """
+    >>> get_wikipedia_definition('Toronto')
+    """
     first_paragraph = start_wikipedia_fetch(topic)
     print(first_paragraph)
     definition = f'Wikipedia defines {topic} as: ' + '"' + extract_first_sentence(first_paragraph) + '"'
@@ -25,5 +28,4 @@ def get_wikipedia_definition(topic: str) -> Optional[str]:
         return None
     elif '{' in definition or '}' in definition:
         return None
-    return definition + "<ADD BREAK> Here are a few more things that you may like:" + '<ADD BREAK>'.join(
-        get_key_points_google(topic))
+    return definition, 'Here are some headlines related to your topic: \n' + '\n'.join(get_key_points_google(topic))
