@@ -8,16 +8,16 @@ from GoogleNews import GoogleNews
 def get_key_points_google(topic):
     """
 
-    :param topic:
-    :return: lst
-    
+    :param topic: str
+    :return: str
+
     >>> get_key_points_google('King Kong')
     """
     gn = GoogleNews('en', 'd')
     gn.search(topic)
     gn.getpage(1)
     gn.result()
-    return(gn.gettext())
+    return gn.gettext()
 
 nltk.download('omw-1.4')
 PUNCTUATION = ['.', '!', '?']

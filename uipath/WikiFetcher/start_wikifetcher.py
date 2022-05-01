@@ -2,7 +2,7 @@ import os
 from typing import Optional
 import pyperclip as pc
 from sentence_tools import extract_first_sentence
-
+from sentence_tools import get_key_points_google
 
 UiRobotPath = r'C:\\Users\14163\AppData\Local\Programs\UiPath\Studio\UiRobot.exe'
 ProcessPath = r'C:\\Users\\14163\\Documents\\GitHub\\essay_brainstormer\\uipath\\WikiFetcher\\WikiFetcher\\Main.xaml'
@@ -25,4 +25,5 @@ def get_wikipedia_definition(topic: str) -> Optional[str]:
         return None
     elif '{' in definition or '}' in definition:
         return None
-    return definition
+    return definition + "<ADD BREAK> Here are a few more things that you may like:" + '<ADD BREAK>'.join(
+        get_key_points_google(topic))
