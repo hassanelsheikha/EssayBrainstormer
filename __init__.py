@@ -11,15 +11,18 @@ def home():
     if request.method == "POST":
         topic = request.form["topic"]
         if topic == '':  # if the user has not given an input
-            return render_template("index.html", empty="True")
+            return render_template("index.html", empty="True", site="")
         else:
             wikipedia_definition = get_wikipedia_definition(topic)
+            url = f'https://en.wikipedia.org/wiki/{topic}'
             if wikipedia_definition is None:  # if the term is undefined
                 wikipedia_definition = 'Wikipedia does not have a definition for this phrase.' \
                                        ' If your phrase is broad (there is one name corresponding to equally ranked people), please be more specific.'
-            return render_template("index.html", wikipedia=wikipedia_definition)
+                site = ""
+            print(f'URL is: {url}')
+            return render_template("index.html", wikipedia=wikipedia_definition, site=url)
     else:
-        return render_template("index.html")
+        return render_template("index.html", site='')
 
 
 if __name__ == "__main__":
