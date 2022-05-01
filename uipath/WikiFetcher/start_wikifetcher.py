@@ -4,8 +4,8 @@ import pyperclip as pc
 from sentence_tools import extract_first_sentence
 
 
-UiRobotPath = r'C:\\Users\Hassan\AppData\Local\Programs\UiPath\Studio\UiRobot.exe'
-ProcessPath = r'C:\\Users\\Hassan\\Documents\\GitHub\\essay_brainstormer\\uipath\\WikiFetcher\\WikiFetcher\\Main.xaml'
+UiRobotPath = r'C:\\Users\14163\AppData\Local\Programs\UiPath\Studio\UiRobot.exe'
+ProcessPath = r'C:\\Users\\14163\\Documents\\GitHub\\essay_brainstormer\\uipath\\WikiFetcher\\WikiFetcher\\Main.xaml'
 
 
 def start_wikipedia_fetch(topic: str) -> str:

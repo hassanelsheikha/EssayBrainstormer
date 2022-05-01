@@ -2,12 +2,26 @@ import nltk
 from PyDictionary import PyDictionary
 import itertools
 from nltk.corpus import wordnet as wn
+from GoogleNews import GoogleNews
+
+
+def get_key_points_google(topic):
+    """
+
+    :param topic:
+    :return: lst
+    
+    >>> get_key_points_google('King Kong')
+    """
+    gn = GoogleNews('en', 'd')
+    gn.search(topic)
+    gn.getpage(1)
+    gn.result()
+    return(gn.gettext())
 
 nltk.download('omw-1.4')
 PUNCTUATION = ['.', '!', '?']
 DICTIONARY = PyDictionary()
-
-
 def extract_first_sentence(text: str) -> str:
     """Return the first sentence in <text>. A sentence is defined as a string of
     words that ends with a period. If there is a sentence that occurs after
