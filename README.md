@@ -17,4 +17,5 @@ Press the blue address, and a webpage identical to the one in the below screensh
 ![image](https://user-images.githubusercontent.com/71786895/166153570-43620d75-8aad-40fb-a30c-8a3db6299860.png)
 
 Here, simply enter a topic into the text field, and after the process executes, the results should be visible on the webpage (as text).
+
 **NOTE: Browser links/windows may open during execution. This is normal! Please do not close the tabs/windows.**
