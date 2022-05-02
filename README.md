@@ -1,6 +1,6 @@
 # essay_brainstormer
 
-This project was designed for the DeerHacks Hackathon (https://deerhacks.mcss.club/). 
+This project was designed for the DeerHacks Hackathon (https://deerhacks.mcss.club/), and earned second-place (in the UiPath automation category).
 
 ## Purpose
 
