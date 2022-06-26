@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 from uipath.WikiFetcher.start_wikifetcher import get_wikipedia_definition
-from sentence_tools import main_get_keywords, get_search_words
 
 
 app = Flask(__name__)
