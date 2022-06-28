@@ -1,6 +1,6 @@
 # EssayBrainstormer
 
-This project was designed for the DeerHacks Hackathon (https://deerhacks.mcss.club/), and earned second-place in the UiPath automation category.
+This project was designed for the DeerHacks Hackathon (https://deerhacks.mcss.club/), and earned second-place in the UiPath automation category. View more at https://devpost.com/software/definiton-finder
 
 ## Purpose
 
