@@ -14,10 +14,10 @@ This program is implemented using Python as the back-end language. It leverages 
 -As of the time of this writing, **this project is available for use only on machines running Windows as their OS**, since UiPath does not support Linux- nor MacOS-based machines.
 
 -The following must be installed on your machine:
-    - At least Python 3.9
-    - UiPath Studio
-    - Internet Explorer (for the UiPath automation to work)
-    - Python Packages: flask, pyperclip, dotenv, nltk, PyDictionary, itertools, GoogleNews
++ At least Python 3.9
++ UiPath Studio
++ Internet Explorer (for the UiPath automation to work)
++ Python Packages: flask, pyperclip, dotenv, nltk, PyDictionary, itertools, GoogleNews
 
 ## Usage
 
